@@ -1,0 +1,18 @@
+.VaultWrapper {
+    width: 1088px;
+    margin: 0px auto;
+
+    .vault-symbol-col {
+        margin-left: 3rem;
+        display: flex;
+        align-items: center;
+
+        .AssetIcon {
+            margin-right: 0.5rem;
+        }
+
+        .symbol {
+            text-transform: uppercase;
+        }
+    }
+}

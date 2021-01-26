@@ -1,0 +1,27 @@
+$niceBlue: rgb(0, 209, 255);
+
+.ConnectButton {
+    button {
+        color: white;
+        background-color: rgb(64, 68, 79);
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        margin-top: 0px;
+        opacity: 1;
+        width: 100% !important;
+    }
+
+    button:hover {
+        border: 1px solid $niceBlue;
+    }
+
+    .name {
+        justify-content: center;
+    }
+}

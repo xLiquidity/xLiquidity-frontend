@@ -1,0 +1,11 @@
+.AssetIcon {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        height: 24px;
+        width: 24px;
+    }
+}
