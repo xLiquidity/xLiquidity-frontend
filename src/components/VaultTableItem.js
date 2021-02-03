@@ -17,28 +17,28 @@ const VaultTableItem = ({ item }) => {
             <td className="px-6 py-5 text-left">
                 <div className="flex items-center">
                     <AssetIcon icon={icon} />
-                    <span className="ml-3 text-sm uppercase leading-5 font-medium text-white truncate">
+                    <span className="ml-3 text-sm uppercase leading-5 font-medium text-gray-900 dark:text-white truncate">
                         {symbol}
                     </span>
                 </div>
             </td>
             <td className="px-6 py-5 text-right">
-                <span className="ml-3 text-sm leading-5 font-medium text-white truncate">
+                <span className="ml-3 text-sm leading-5 font-medium text-gray-900 dark:text-white truncate">
                     <span>{deposited}</span>
                 </span>
             </td>
             <td className="px-6 py-5 text-right">
-                <span className="ml-3 text-sm leading-5 font-medium text-white truncate">
+                <span className="ml-3 text-sm leading-5 font-medium text-gray-900 dark:text-white truncate">
                     <span>{availableToDeposit}</span>
                 </span>
             </td>
             <td className="px-6 py-5 text-right">
-                <span className="ml-3 text-sm leading-5 font-medium text-white truncate">
+                <span className="ml-3 text-sm leading-5 font-medium text-gray-900 dark:text-white truncate">
                     <span>{growth}</span>
                 </span>
             </td>
             <td className="px-6 py-5 text-right">
-                <span className="ml-3 text-sm leading-5 font-medium text-white truncate">
+                <span className="ml-3 text-sm leading-5 font-medium text-gray-900 dark:text-white truncate">
                     <span>{aum}</span>
                 </span>
             </td>
