@@ -27,29 +27,45 @@ export const updateAccount = (dispatch, window) => {
 };
 
 export const loadProvider = (dispatch) => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    dispatch(providerLoaded(provider));
-    return provider;
+    try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        dispatch(providerLoaded(provider));
+        return provider;
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 export const loadSigner = (dispatch) => {
-    const provider = loadProvider(dispatch);
-    const signer = provider.getSigner();
-    dispatch(signerLoaded(signer));
-    return signer;
+    try {
+        const provider = loadProvider(dispatch);
+        const signer = provider.getSigner();
+        dispatch(signerLoaded(signer));
+        return signer;
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 export const loadBalance = async (dispatch, provider, account) => {
-    const balance = await provider.getBalance(account);
-    const formattedEther = ethers.utils.formatEther(balance);
-    dispatch(balanceLoaded(formattedEther));
-    return formattedEther;
+    try {
+        const balance = await provider.getBalance(account);
+        const formattedEther = ethers.utils.formatEther(balance);
+        dispatch(balanceLoaded(formattedEther));
+        return formattedEther;
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 export const loadTokenBalance = async (provider, account, tokenAddress, tokenAbi) => {
-    const tokenContract = new ethers.Contract(tokenAddress, tokenAbi, provider);
-    const balance = await tokenContract.balanceOf(account);
-    return balance;
+    try {
+        const tokenContract = new ethers.Contract(tokenAddress, tokenAbi, provider);
+        const balance = await tokenContract.balanceOf(account);
+        return balance;
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 export const loadTokenBalances = async (dispatch, provider, account) => {

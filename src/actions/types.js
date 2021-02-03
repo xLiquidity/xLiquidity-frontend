@@ -2,6 +2,7 @@
 export const SHOW_CONNECT_MODAL = "SHOW_CONNECT_MODAL";
 export const HIDE_CONNECT_MODAL = "HIDE_CONNECT_MODAL";
 export const RESET_APP = "RESET_APP";
+export const TOGGLE_DARK_MODE = "TOGGLE_DARK_MODE";
 
 // user
 export const ACCOUNT_UPDATED = "ACCOUNT_UPDATED";

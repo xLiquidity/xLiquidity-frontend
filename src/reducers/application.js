@@ -1,14 +1,11 @@
-import { SHOW_CONNECT_MODAL, HIDE_CONNECT_MODAL, RESET_APP } from "../actions/types";
+import { RESET_APP, TOGGLE_DARK_MODE } from "../actions/types";
 
-const INITIAL_STATE = { showConnectModal: false };
+const INITIAL_STATE = { darkMode: true };
 
 export default function rootReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case SHOW_CONNECT_MODAL:
-            return { ...state, showConnectModal: true };
-        case HIDE_CONNECT_MODAL:
-            return { ...state, showConnectModal: false };
-
+        case TOGGLE_DARK_MODE:
+            return { ...state, darkMode: !state.darkMode };
         case RESET_APP:
             return INITIAL_STATE;
 

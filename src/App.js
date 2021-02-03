@@ -10,7 +10,6 @@ import {
     loadBalance,
     loadTokenBalances,
 } from "./interactions/interactions";
-import "./App.scss";
 import { daiContractAddress } from "./config/config";
 
 function App() {
@@ -31,9 +30,15 @@ function App() {
     }, [updateAccount, dispatch, account]);
 
     return (
-        <div className="App">
+        <div className="min-h-screen flex flex-col">
             <Navigation />
-            <Routes />
+            <div className="relative flex-1 flex bg-gray-100 dark:bg-gray-900">
+                <div className="flex flex-col w-0 flex-1">
+                    <main className="flex flex-col items-center flex-1 relative z-0 pb-6 focus:outline-none md:pb-6">
+                        <Routes />
+                    </main>
+                </div>
+            </div>
         </div>
     );
 }

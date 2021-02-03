@@ -1,44 +1,71 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Image } from "react-bootstrap";
-import {
-    showConnectModalInState,
-    hideConnectModalInState,
-} from "../actions/application";
-import { formatAddress } from "./helpers";
+import { NavLink } from "react-router-dom";
 import ConnectModal from "./ConnectModal";
-import "./Navigation.scss";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Navigation = () => {
-    const dispatch = useDispatch();
-    const { account } = useSelector((st) => st.user);
-    const { showConnectModal } = useSelector((st) => st.application);
-    const handleShowModal = () => dispatch(showConnectModalInState());
-    const handleCloseModal = () => dispatch(hideConnectModalInState());
-
-    const connectRender = (
-        <Nav.Item>
-            <button onClick={handleShowModal}>
-                {account ? formatAddress(account) : "Connect"}
-            </button>
-            <ConnectModal show={showConnectModal} handleClose={handleCloseModal} />
-        </Nav.Item>
-    );
-
     return (
-        <div className="Navigation">
-            <Navbar>
-                <Navbar.Brand className="nav-brand" as={Link} to="/">
-                    xLiquidity
-                </Navbar.Brand>
-                <Nav className="mr-auto nav-menu">
-                    <Nav.Link as={Link} to="/vaults">
-                        Vaults
-                    </Nav.Link>
-                </Nav>
-                <Nav className="connect-button ml-auto">{connectRender}</Nav>
-            </Navbar>
+        <div className="sticky top-0 z-10 flex-none">
+            <nav className="dark:bg-gray-900 border-b border-gray-700">
+                <div className="mx-auto px-2 sm:px-4 lg:px-8">
+                    <div className="relative flex items-center justify-between h-16">
+                        <div className="flex items-center px-2 lg:px-0 lg:space-x-2">
+                            <div className="flex-none">
+                                <NavLink
+                                    to="/"
+                                    className="rounded-md overflow-hidden flex h-9 w-9 focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-gray-800 focus-visible:ring-offset-gray-900 transition"
+                                >
+                                    <img
+                                        className="h-8 w-8"
+                                        src={
+                                            process.env.PUBLIC_URL +
+                                            "/assets/xLiquidity-logo.png"
+                                        }
+                                    />
+                                </NavLink>
+                            </div>
+                            <div className="flex">
+                                <div className="ml-10 flex space-x-4">
+                                    <NavLink
+                                        to="/dashboard"
+                                        activeClassName="text-gray-900 border border-green-300 dark:bg-gray-900 flex-shrink-0 inline-flex items-center justify-center overflow-hidden font-medium truncate focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-gray-800 focus-visible:ring-offset-gray-900 transition dark:text-white dark:hover:bg-gray-700 text-sm leading-5 rounded-md px-3 py-2"
+                                        className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                    <NavLink
+                                        to="/vaults"
+                                        activeClassName="text-gray-900 border border-green-300 dark:bg-gray-900 flex-shrink-0 inline-flex items-center justify-center overflow-hidden font-medium truncate focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-gray-800 focus-visible:ring-offset-gray-900 transition dark:text-white dark:hover:bg-gray-700 text-sm leading-5 rounded-md px-3 py-2"
+                                        className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    >
+                                        Invest
+                                    </NavLink>
+                                    <NavLink
+                                        to="/manage"
+                                        activeClassName="text-gray-900 border border-green-300 dark:bg-gray-900 flex-shrink-0 inline-flex items-center justify-center overflow-hidden font-medium truncate focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-gray-800 focus-visible:ring-offset-gray-900 transition dark:text-white dark:hover:bg-gray-700 text-sm leading-5 rounded-md px-3 py-2"
+                                        className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    >
+                                        Manage
+                                    </NavLink>
+                                    <NavLink
+                                        to="/create"
+                                        activeClassName="text-gray-900 border border-green-300 dark:bg-gray-900 flex-shrink-0 inline-flex items-center justify-center overflow-hidden font-medium truncate focus:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-gray-800 focus-visible:ring-offset-gray-900 transition dark:text-white dark:hover:bg-gray-700 text-sm leading-5 rounded-md px-3 py-2"
+                                        className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    >
+                                        Create
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hidden lg:block lg:ml-4">
+                            <div className="flex items-center">
+                                <ConnectModal />
+                                <DarkModeToggle />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
     );
 };
