@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { formatAddress } from "./helpers";
 import ConnectButton from "./ConnectButton";
 import Jazzicon from "react-jazzicon";
+import { disconnectAccount } from "../actions/user";
 
 const ConnectModal = () => {
+    const dispatch = useDispatch();
+    const { account } = useSelector((st) => st.user);
+
     const [showModal, setShowModal] = useState(false);
     const [connecting, setConnecting] = useState(false);
-
-    const { account } = useSelector((st) => st.user);
 
     const handleConnect = (e) => {
         const { ethereum } = window;
@@ -16,6 +19,10 @@ const ConnectModal = () => {
         setConnecting(true);
         ethereum.request({ method: "eth_requestAccounts" });
         setConnecting(false);
+    };
+
+    const handleDisconnect = (e) => {
+        dispatch(disconnectAccount());
     };
 
     const connections = [{ name: "Metamask", icon: "metamask.png" }];
@@ -74,6 +81,14 @@ const ConnectModal = () => {
                                 {!connecting ? (
                                     <div className="connections">
                                         {account && <p>{account}</p>}
+                                        {account && (
+                                            <button
+                                                className=""
+                                                onClick={handleDisconnect}
+                                            >
+                                                Disconnect
+                                            </button>
+                                        )}
                                         {!account &&
                                             connections.map((conn, idx) => (
                                                 <ConnectButton

@@ -2,12 +2,12 @@ import {
     DEPOSIT_INITIATED,
     WITHDRAW_INITIATED,
     ACCOUNT_UPDATED,
-    CONNECT_INITIATED,
     PROVIDER_LOADED,
     SIGNER_LOADED,
     ACCOUNT_LOADED,
     BALANCE_LOADED,
     TOKEN_BALANCES_LOADED,
+    ACCOUNT_DISCONNECTED,
 } from "./types";
 
 export function depositInitiatedInState(asset, amount) {
@@ -77,5 +77,11 @@ export function tokenBalancesLoaded(balances) {
     return {
         type: TOKEN_BALANCES_LOADED,
         balances,
+    };
+}
+
+export function disconnectAccount() {
+    return {
+        type: ACCOUNT_DISCONNECTED,
     };
 }

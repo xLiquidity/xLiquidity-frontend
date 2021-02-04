@@ -1,6 +1,6 @@
 import {
     CONNECT_INITIATED,
-    RESET_ACCOUNT,
+    ACCOUNT_DISCONNECTED,
     PROVIDER_LOADED,
     SIGNER_LOADED,
     ACCOUNT_LOADED,
@@ -25,7 +25,7 @@ export default function rootReducer(state = INITIAL_STATE, action) {
             return { ...state, balance: action.balance };
         case TOKEN_BALANCES_LOADED:
             return { ...state, balances: action.balances };
-        case RESET_ACCOUNT:
+        case ACCOUNT_DISCONNECTED:
             return { ...state, account: null };
 
         default:

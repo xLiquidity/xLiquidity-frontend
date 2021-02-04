@@ -32,7 +32,7 @@ function App() {
     return (
         <div className="min-h-screen flex flex-col">
             <Navigation />
-            <div className="relative flex-1 flex bg-gray-100 dark:bg-gray-900">
+            <div className="relative flex-1 flex bg-white dark:bg-gray-900">
                 <div className="flex flex-col w-0 flex-1">
                     <main className="flex flex-col items-center flex-1 relative z-0 pb-6 focus:outline-none md:pb-6">
                         <Routes />

@@ -1,6 +1,5 @@
 import React from "react";
 import AssetIcon from "./AssetIcon";
-import "./ConnectButton.scss";
 
 const ConnectButton = ({ name, icon, handleClick }) => {
     return (

@@ -1,17 +1,16 @@
 import React from "react";
-import { vaults } from "./data/sampleData";
 import Header from "./Header";
-import VaultTable from "./VaultTable";
+import VaultStrategyTable from "./VaultStrategyTable";
 
-const Vaults = () => {
+const VaultStrategies = ({ strategies }) => {
     return (
         <div className="flex-1 max-w-7xl w-full pb-12 px-4 sm:px-6 lg:px-8">
-            <Header title={"Vaults"} />
+            <Header title={"Strategies"} />
             <div className="overflow-x-auto">
-                <VaultTable vaults={vaults} />
+                <VaultStrategyTable strategies={strategies} />
             </div>
         </div>
     );
 };
 
-export default Vaults;
+export default VaultStrategies;

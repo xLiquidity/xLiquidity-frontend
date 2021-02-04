@@ -6,6 +6,7 @@ import VaultDetails from "./VaultDetails";
 import Create from "./Create";
 import Dashboard from "./Dashboard";
 import Manage from "./Manage";
+import VaultStrategyDetails from "./VaultStrategyDetails";
 
 const Routes = () => {
     return (
@@ -19,20 +20,24 @@ const Routes = () => {
                     <Dashboard />
                 </Route>
 
-                <Route exact path="/vaults">
-                    <Vaults />
-                </Route>
-
-                <Route path="/vaults/:symbol">
-                    <VaultDetails />
-                </Route>
-
                 <Route exact path="/manage">
                     <Manage />
                 </Route>
 
                 <Route exact path="/create">
                     <Create />
+                </Route>
+
+                <Route exact path="/vaults">
+                    <Vaults />
+                </Route>
+
+                <Route path="/vaults/:symbol/strategy/:name/">
+                    <VaultStrategyDetails />
+                </Route>
+
+                <Route path="/vaults/:symbol">
+                    <VaultDetails />
                 </Route>
 
                 <Redirect to="/" />
